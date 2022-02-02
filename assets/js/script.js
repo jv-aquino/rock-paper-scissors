@@ -1,11 +1,22 @@
 function computerPlay() {
-  // To be done
+  let choose = Math.floor(Math.random() * 3) + 1;
+  // Randomly gets a number from 1 to 3
+  // Then turns it into Rock, Paper or scissors
+  if (choose === 1) {
+    return "rock";
+  }
+  else if (choose === 2) {
+    return "paper";
+  }
+  else {
+    return "scissors";
+  }
 }
 
 let winner;
 
 function round(playerSelection, computerSelection) {
-  playerSelection.toLowerCase();
+  playerSelection = playerSelection.toLowerCase();
 
   // Player loses
   if (playerSelection === 'rock' && computerSelection === 'paper') {
@@ -72,7 +83,15 @@ function game() {
   }
 
   // Final winner/loser
-  // To be done
+  if (computerWins > playerWins) {
+    console.log("The computer won!");
+  }
+  else if (playerWins > computerWins) {
+    console.log("The player won!");
+  }
+  else {
+    console.log("Nobody won! Tie!");
+  }
 }
 
 game();
