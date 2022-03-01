@@ -1,80 +1,83 @@
-let winner;
 let playerWins, computerWins;
+let buttonID;
+playerWins = 0;
+computerWins = 0;
 
-function game() {
-  playerWins = 0;
-  computerWins = 0;
+const playerWinsHTML = document.querySelector('.player h2');
+const computerWinsHTML = document.querySelector('.computer h2');
+const buttons = document.querySelectorAll('.buttons button');
 
-  // Play the 5 rounds
-  for (let i = 0; i < 5; i++) {
-    let computerSelection = computerPlay();
-    let playerSelection = prompt("Select one: rock, paper or scissors");
+buttons.forEach(button => {
+  buttonID = button.id;
+  button.addEventListener('click', playerSelect);
+})
 
-    console.log(playRound(playerSelection, computerSelection));
+function playerSelect(buttonID) {
+  if (getGameWinner() != 'none') return;
 
-    updateScore();
-
-    // Show the score
-    console.log("Player Score: " + playerWins + " | Computer Score: " + computerWins);
-  }
-
-  // Final winner/loser
-  if (computerWins > playerWins) {
-    console.log("The computer won!");
-  }
-  else if (playerWins > computerWins) {
-    console.log("The player won!");
-  }
-  else {
-    console.log("Nobody won! Tie!");
-  }
+  let playerSelection = buttonID;
+  playRound(playerSelection, computerPlay());
 }
 
 function playRound(playerSelection, computerSelection) {
-  playerSelection = playerSelection.toLowerCase();
+  let roundWinner = 'none';
+  
+  roundWinner = getRoundWinner(computerSelection, playerSelection);
 
+  updateScore(roundWinner);
+}
+
+function updateScore(roundWinner) {
+  if (roundWinner === 'computer') {
+    computerWins++;
+    computerWinsHTML.textContent = computerWins;
+  }
+  else if(roundWinner === 'player') {
+    playerWins++;
+    playerWinsHTML.textContent = playerWins;
+  }
+}
+
+function getRoundWinner(computerSelection, playerSelection) {
   // Player loses
   if (playerSelection === 'rock' && computerSelection === 'paper') {
-    winner = 'computer';
-    return "You Lose! Paper beats Rock";
+    return 'computer';
   } 
   else if (playerSelection === 'paper' && computerSelection === 'scissors') {
-    winner = 'computer';
-    return "You Lose! Scissors beats Paper";
+    return 'computer';
   }
   else if (playerSelection === 'scissors' && computerSelection === 'rock') {
-    winner = 'computer';
-    return "You Lose! Rock beats Scissors";
+    return 'computer';
   }
 
   // Player wins
   else if (playerSelection === 'paper' && computerSelection === 'rock') {
-    winner = 'player';
-    return "You Won! Paper beats Rock";
+    return 'player';
   } 
   else if (playerSelection === 'scissors' && computerSelection === 'paper') {
-    winner = 'player';
-    return "You Won! Scissors beats Paper";
+    return 'player';
   }
   else if (playerSelection === 'rock' && computerSelection === 'scissors') {
-    winner = 'player';
-    return "You Won! Rock beats Scissors";
+    return 'player';
   }
   
-
   // Tie
   else {
-    winner = 'none';
-    return "Tie!";
+    return 'none';
   }
 }
 
-function updateScore() {
-  if (winner === 'computer') {
-    computerWins++;
+function getGameWinner() {
+  if (playerWins === 5) {
+    displayWinner('player');
+    return 'player';
   }
-  else if(winner === 'player') {
-    playerWins++;
+  else if (computerWins === 5) {
+    displayWinner('computer');
+    return 'computer';
+  }
+  else {
+    return 'none';
   }
 }
 
@@ -93,4 +96,6 @@ function computerPlay() {
   }
 }
 
-game();
+function displayWinner(winner) {
+
+}

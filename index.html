@@ -5,11 +5,36 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./assets/css/style.css">
-  <title>Rock Paper Scissors</title>
+  <title>Rock Paper Scissors Game</title>
 </head>
 <body>
-  <h1>Rock Paper Scissors Game</h1>
-  <h3>Press F12 to see the results!!!</h3>
+  <header>
+    <h1>Rock Paper Scissors</h1>
+  </header>
+  
+  <div class="buttons">
+    <button id="rock" onclick="playerSelect('rock')">
+      ✊
+    </button>
+    <button id="paper" onclick="playerSelect('paper')">
+      🖐
+    </button>
+    <button id="scissors" onclick="playerSelect('scissors')">
+      ✌
+    </button>
+  </div>
+
+  <div class="score">
+    <div class="player">
+      <h2>0</h2>
+      <h3>Player</h3>
+    </div>
+    <div class="computer">
+      <h2>0</h2>
+      <h3>Computer</h3>
+    </div>
+  </div>
+
   <script src="./assets/js/script.js"></script>
 </body>
 </html>
