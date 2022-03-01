@@ -13,16 +13,35 @@
   </header>
   
   <div class="buttons">
-    <button id="rock" onclick="playerSelect('rock')">
-      ✊
-    </button>
-    <button id="paper" onclick="playerSelect('paper')">
-      🖐
-    </button>
-    <button id="scissors" onclick="playerSelect('scissors')">
-      ✌
-    </button>
+    <div>
+      <h1>Rock</h1>
+      <button id="rock" onclick="playerSelect('rock')">
+        ✊
+      </button>
+    </div>
+    <div>
+      <h1>Paper</h1>
+      <button id="paper" onclick="playerSelect('paper')">
+        🖐
+      </button>
+    </div>
+    <div>
+      <h1>Scissors</h1>
+      <button id="scissors" onclick="playerSelect('scissors')">
+        ✌
+      </button>
+    </div>
   </div>
+  
+  <div class="finalScore">
+
+  </div>
+
+  <div id="result">
+    <h2></h2>
+  </div>
+
+  <h2>Score</h2>
 
   <div class="score">
     <div class="player">
@@ -34,6 +53,8 @@
       <h3>Computer</h3>
     </div>
   </div>
+
+
 
   <script src="./assets/js/script.js"></script>
 </body>

@@ -2,7 +2,7 @@
 
 body {
   text-align: center;
-  background-color: #e6e6e6;
+  background-color: rgb(3, 1, 14);
 }
 
 * {
@@ -12,7 +12,9 @@ body {
 
 header {
   font-size: 22px;
-  margin: 27px 0;
+  padding: 28px 0;
+  color: #eee9e3;
+  background-color: rgb(3, 1, 14);
 }
 
 .buttons {
@@ -20,44 +22,85 @@ header {
   justify-content: center;
   align-items: center;
   gap: 12px;
-  margin-bottom: 30px;
+  padding: 30px 0;
+  background-color: #eee9e3;
+}
+.buttons h1 {
+  padding-bottom: 15px;
+  font-size: 35px;
 }
 .buttons button {
-  font-size: 100px;
+  font-size: 110px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  height: 180px;
-  width: 190px;
-  padding-bottom: 22px;
-  border: 2px solid black;
+  height: 195px;
+  width: 205px;
+  padding-bottom: 23px;
+  border: 4px solid rgb(255, 204, 132);
   cursor: pointer;
+}
+
+#rock {
+  background-color: rgb(255, 255, 255);
+}
+#paper {
+  background-color: #838383;
+}
+#scissors {
+  background-color: rgb(3, 1, 14);
+}
+
+h2 {
+  padding: 20px;
+  padding-bottom: 0;
+  color: rgb(255, 255, 255);
+  font-size: 40px;
 }
 
 .score {
   display: flex;
   gap: 25px;
   justify-content: center;
+  padding: 25px;
 }
 .score div {
   width: 200px;
 }
 .score h2 {
-  font-size: 80px;
-  padding: 15px 10px;
+  font-size: 100px;
+  padding: 15px 0px;
   margin-bottom: 0;
-  border: 1px solid black;
+  border: 1px solid rgb(255, 255, 255);
 }
 .score h3 {
-  font-size: 29px;
+  font-size: 31px;
   margin: 0;
   margin-top: 15px;
 }
 
+#result, .score {
+  background-color: rgb(3, 1, 14);
+}
+
+#result {
+  height: 0;
+}
+
 .player {
-  color: #6F08A7;
+  color: rgb(255, 255, 255);
 }
 .computer {
-  color: #e6e60e;
+  color: rgb(255, 204, 132);
+}
+.computer h2 {
+  border-color: rgb(255, 204, 132);
+}
+
+.finalScoreH1 {
+  color: rgb(255, 204, 132);
+  font-size: 43px;
+  padding: 30px;
+  padding-bottom: 0px;
 }
